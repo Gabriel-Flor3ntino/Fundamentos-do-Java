@@ -1,0 +1,19 @@
+package main;
+
+import java.util.Scanner;
+
+public class MainClass {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		int a, b, r;
+		IO.println("Digite a");
+		a = scanner.nextInt();
+		IO.println("Digite b");
+		b = scanner.nextInt();
+		r = a/b;
+		IO.println("Valor do r = %d"+r);
+		
+		
+	}
+}

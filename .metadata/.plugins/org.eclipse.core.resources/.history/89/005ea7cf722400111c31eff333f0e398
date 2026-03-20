@@ -1,0 +1,28 @@
+package main;
+
+public class MainClass {
+	public static void main(String[] args) {
+		
+		Produto p = new Produto();
+		p.setId(0);
+		p.setNome(null);
+		p.setPreco(10);
+		
+//		try (Scanner scanner = new Scanner(System.in)) {
+//			int a, b, r;
+//			IO.println("Digite a");
+//			a = Integer.parseInt(scanner.nextLine());
+//			IO.println("Digite b");
+//			b = scanner.nextInt();
+//			r = a / b;
+//			IO.println("Valor do r = " + r);
+//		} catch (ArithmeticException e) {
+//			IO.println("Erro - Divisão por zero!");
+//		} catch (InputMismatchException | NumberFormatException e) {
+//			IO.println("Erro - Voce deveria digitar numeros inteiros");
+//		} catch (Exception e) {
+//			IO.println(e.getClass().getName());
+//			IO.println("Erro!");
+//		}
+	}
+}

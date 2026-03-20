@@ -1,0 +1,39 @@
+package main;
+
+import java.util.Base64;
+
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+
+public class MainClass {
+	public static void main(String[] args) throws Exception{
+		String texto = "Hello Word!";	
+		IO.println("Criptografando...");
+		KeyGenerator keyGen = KeyGenerator.getInstance("AES");
+		keyGen.init(128);
+		SecretKey secretKey = keyGen.generateKey();
+		//IO.println("Chave: "+secretKey);
+		
+		String textoCriptografado = criptografar(texto, secretKey);
+		IO.println(textoCriptografado);
+		
+		String textoDecriptografado = decriptografar(textoCriptografado, secretKey);
+		IO.println(textoDecriptografado);
+	}
+	
+	public static String criptografar(String textoOriginal, SecretKey chave) throws Exception{
+		Cipher cipher = Cipher.getInstance("AES");
+		cipher.init(Cipher.ENCRYPT_MODE, chave);
+		byte[] textByte = cipher.doFinal(textoOriginal.getBytes());
+		return Base64.getEncoder().encodeToString(textByte);
+	}
+	
+	public static String decriptografar(String textoCripto, SecretKey chave) throws Exception {
+		Cipher cipher = Cipher.getInstance("AES");
+		cipher.init(Cipher.DECRYPT_MODE, chave);
+		byte[] criptoyte = Base64.getDecoder().decode(textoCripto.getBytes());
+		byte[] textoByte = cipher.doFinal(criptoyte);
+		return new String(textoByte);
+	}
+}

@@ -1,0 +1,27 @@
+package main;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class MainClass {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		try {
+			int a, b, r;
+			IO.println("Digite a");
+			a = scanner.nextInt();
+			IO.println("Digite b");
+			b = scanner.nextInt();
+			r = a/b;
+			IO.println("Valor do r = "+r);
+			scanner.close();
+		} catch (ArithmeticException e) {
+			IO.println("Erro - Divisão por zero!");
+		
+		} catch (InputMismatchException e) {	
+			IO.println("Erro - Voce deveria digitar numeros inteiros");
+		} catch (Exception e) {
+			IO.println("Erro!");
+		}
+	}
+}

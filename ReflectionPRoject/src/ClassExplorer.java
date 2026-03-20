@@ -1,0 +1,37 @@
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+public class ClassExplorer {
+
+	public static void exploreMetadata(Object o) throws Exception {
+		IO.println("----> Extraindo os atributos");
+		for (Field f: o.getClass().getDeclaredFields()) {
+			IO.println(f.getName() + ":" +f.getType().getName());
+		}
+		
+		IO.println("----> Extraindo os métodos");
+		for (Method m: o.getClass().getDeclaredMethods()) {
+			IO.println(m.getName()+":"+m.getReturnType());
+		}
+		
+		IO.println("----> Extraindo dados do objeto");
+	    for (Field f : o.getClass().getDeclaredFields()) {
+	        if (f.isAnnotationPresent(Visible.class)) {
+	            f.setAccessible(true);
+	            Object valor = f.get(o);
+	            IO.println("Atributo visível: " + f.getName() + " - " + valor);
+	            f.setAccessible(false);
+	        } else {
+	            IO.println("Atributo não visível: " + f.getName());
+	        }
+	    }
+		
+		IO.println("----> Extraindo por execucao de método");
+		for (Method m: o.getClass().getDeclaredMethods()) {
+			if (m.getName().startsWith("get")) {
+				IO.println(m.getName()+ " - valor:"+ m.invoke(o, null));
+			}
+		}
+	}
+}
+

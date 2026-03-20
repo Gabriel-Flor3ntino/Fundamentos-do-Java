@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Visile&apos; to &apos;Visible&apos;&#x0A;- Original project: &apos;ReflectionProject&apos;&#x0A;- Original element: &apos;Visile&apos;&#x0A;- Renamed element: &apos;Visible&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Visile&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{Visile.java[Visile" matchStrategy="1" name="Visible" qualified="false" references="true" similarDeclarations="false" stamp="1774007499818" textual="false" version="1.0"/>
+</session>

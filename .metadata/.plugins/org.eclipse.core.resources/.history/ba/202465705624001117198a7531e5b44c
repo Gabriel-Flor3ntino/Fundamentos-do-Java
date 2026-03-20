@@ -1,0 +1,9 @@
+package main;
+
+public class MainClass {
+	public static void main(String[] args) {
+		String email = "gabriel@gariel.com";
+		IO.println(email.matches("^[\\w.-_]+@[\\w]+\\.[a-zA-Z0-9]{2-6}"));
+		
+	}
+}
